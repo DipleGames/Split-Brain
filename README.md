@@ -5,6 +5,7 @@
 ### 게임 정보
 - 장르 : 캐쥬얼 아케이드 게임
 - 플랫폼 : Android / iOS
+- 싱글플레이
 
 ### 기술스택
 - IDE : Visual Studio Code
