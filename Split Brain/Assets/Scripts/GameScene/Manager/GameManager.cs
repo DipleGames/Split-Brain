@@ -30,6 +30,11 @@ public class GameManager : SingleTon<GameManager>
                 }
             }
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            StartCoroutine("GameStart");
+        }
     }
 
     IEnumerator GameStart()

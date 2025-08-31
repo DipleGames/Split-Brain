@@ -8,16 +8,20 @@ public class LController : MonoBehaviour
     float objScreenZ; // 월드<->스크린 변환용 Z(깊이)
     bool holding;
 
-    [SerializeField] float minX, maxX;
+    [SerializeField] float z, minX, maxX, margin;
 
     void Awake()
     {
         if (!cam) cam = Camera.main;
+
+        z = cam.WorldToScreenPoint(transform.position).z;
+        Vector3 worldLeft = cam.ViewportToWorldPoint(new Vector3(0f, 0.5f, z));
+        minX = worldLeft.x + margin;
     }
 
     public void LeftResetPos()
     {
-        transform.position = new Vector3(-480, -350, 0); 
+        transform.position = cam.ViewportToWorldPoint(new Vector3(0.25f, 0.5f, z));
     }
 
     public void OnTouch(Touch touch)
