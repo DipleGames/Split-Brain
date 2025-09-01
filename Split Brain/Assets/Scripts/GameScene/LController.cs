@@ -22,6 +22,7 @@ public class LController : MonoBehaviour
     public void LeftResetPos()
     {
         transform.position = cam.ViewportToWorldPoint(new Vector3(0.25f, 0.5f, z));
+        transform.position = new Vector3(transform.position.x, -307, z);
     }
 
     public void OnTouch(Touch touch)

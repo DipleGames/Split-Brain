@@ -24,6 +24,7 @@ public class RController : MonoBehaviour
     public void RightResetPos()
     {
         transform.position = cam.ViewportToWorldPoint(new Vector3(0.75f, 0.5f, z));
+        transform.position = new Vector3(transform.position.x, -307, z);
     }
 
     public void OnTouch(Touch touch)
