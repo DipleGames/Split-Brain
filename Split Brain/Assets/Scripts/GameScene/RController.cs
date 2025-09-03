@@ -8,8 +8,6 @@ public class RController : MonoBehaviour
     float objScreenZ; // 월드<->스크린 변환용 Z(깊이)
     bool holding;
 
-    [SerializeField] float offset = 10f;
-
     [SerializeField] float z, minX, maxX, margin;
 
     void Awake()

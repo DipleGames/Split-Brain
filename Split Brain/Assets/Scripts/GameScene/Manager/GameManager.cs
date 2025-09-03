@@ -1,13 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : SingleTon<GameManager>
 {
-    public enum GameState { Ready, Playing, GameOver } // 상태 패턴
+    public enum GameState { Ready, Playing, Pause, GameOver } // 상태 패턴
 
     public GameState gameState = GameState.Ready;
     public GameObject obstacleSpawner;
+
 
     void Update()
     {
@@ -33,7 +34,8 @@ public class GameManager : SingleTon<GameManager>
 
         if (Input.GetMouseButtonDown(0))
         {
-            StartCoroutine("GameStart");
+            if(gameState == GameState.Ready)
+                StartCoroutine("GameStart");
         }
     }
 
@@ -66,5 +68,27 @@ public class GameManager : SingleTon<GameManager>
         obstacleSpawner.SetActive(false);
         AudioManager.Instance.StopBGM();
         UIManager.Instance.OnGameUI(gameState);
+    }
+
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f; // 게임 정지
+        UIManager.Instance.OnPauseUI(gameState);
+        gameState = GameState.Pause;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f; // 게임 재개
+        UIManager.Instance.OnPauseUI(gameState);
+        gameState = GameState.Playing;
+    }
+
+    public void GoToLobby()
+    {
+        Time.timeScale = 1f; 
+        Ready();
+        SceneManager.LoadScene("LobbyScene");
     }
 }
