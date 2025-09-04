@@ -31,12 +31,11 @@ public class GameManager : SingleTon<GameManager>
                 }
             }
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(gameState == GameState.Ready)
-                StartCoroutine("GameStart");
-        }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     if(gameState == GameState.Ready)
+        //         StartCoroutine("GameStart");
+        // }
     }
 
     IEnumerator GameStart()
