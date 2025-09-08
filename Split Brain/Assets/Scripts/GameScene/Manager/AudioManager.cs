@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : SingleTon<AudioManager>
 {
     AudioSource audioSource;
     AudioClip bgm;
+
+    [SerializeField] Slider volume_Slider;
 
     void Start()
     {
@@ -14,7 +17,15 @@ public class AudioManager : SingleTon<AudioManager>
 
         // Inspector에 지정된 기본 클립 가져오기
         bgm = audioSource.clip;
+        audioSource.volume = volume_Slider.value;
+        volume_Slider.onValueChanged.AddListener(SetVolume);
+
         StopBGM();
+    }
+
+    void SetVolume(float value)
+    {
+        audioSource.volume = value;
     }
 
     public void PlayBGM()
@@ -47,5 +58,18 @@ public class AudioManager : SingleTon<AudioManager>
     public void ResumeBGM()
     {
         audioSource.UnPause();
+    }
+
+    public void OnClickedSoundBtn()
+    {
+        Time.timeScale = 0f; // 게임 정지
+        UIManager.Instance.OnSoundUI(true);
+    }
+
+    public void OnClickedOffBtn()
+    {
+        Time.timeScale = 1f; // 게임 재개
+        UIManager.Instance.OnSoundUI(false);
+        
     }
 }
