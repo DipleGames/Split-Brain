@@ -5,6 +5,6 @@ public class LobbyManager : MonoBehaviour
 {
     public void OnClickStartBtn()
     {
-        SceneManager.LoadScene("MiniGame01");
+        SceneManager.LoadScene("MG01_Scene");
     }
 }

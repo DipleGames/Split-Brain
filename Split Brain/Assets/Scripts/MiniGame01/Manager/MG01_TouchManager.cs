@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MG01_TouchManager : SingleTon<MG01_TouchManager>
 {
-    public LController leftController;
-    public RController rightController;
+    public MG01_LController leftController;
+    public MG01_RController rightController;
 
     void Update()
     {
