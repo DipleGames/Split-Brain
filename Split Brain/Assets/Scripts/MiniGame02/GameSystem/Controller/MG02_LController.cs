@@ -35,6 +35,14 @@ public class MG02_LController : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bullet")
+        {
+            MG02_GameManager.Instance.GameOver();
+        }
+    }
+
     public void OnTouch(Touch touch)
     {
         if (touch.phase == TouchPhase.Began)

@@ -405,9 +405,11 @@
 "Assets/Scripts/MiniGame01/Manager/MG01_UIManager.cs"
 "Assets/Scripts/MiniGame01/SafeAreaPillarboxLR.cs"
 "Assets/Scripts/MiniGame01/SingleTon.cs"
+"Assets/Scripts/MiniGame02/GameSystem/Bullet.cs"
 "Assets/Scripts/MiniGame02/GameSystem/Controller/MG02_LController.cs"
 "Assets/Scripts/MiniGame02/GameSystem/Controller/MG02_RController.cs"
 "Assets/Scripts/MiniGame02/GameSystem/JoyStickAreaDriver.cs"
+"Assets/Scripts/MiniGame02/Manager/MG02_BulletManager.cs"
 "Assets/Scripts/MiniGame02/Manager/MG02_GameManager.cs"
 "Assets/Scripts/MiniGame02/Manager/MG02_TouchManager.cs"
 -langversion:9.0
