@@ -7,7 +7,7 @@ public class MG01_TouchManager : SingleTon<MG01_TouchManager>
 
     void Update()
     {
-        if (MG01_GameManager.Instance.gameState != MG01_GameManager.GameState.Playing) return;
+        if (MG01_GameManager.Instance.gameState != MG01_GameManager.MG01_GameState.Playing) return;
 
         for (int i = 0; i < Input.touchCount; i++)
         {

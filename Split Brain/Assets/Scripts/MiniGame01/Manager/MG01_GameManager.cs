@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MG01_GameManager : SingleTon<MG01_GameManager>
 {
-    public enum GameState { Ready, Playing, Pause, GameOver } // 상태 패턴
+    public enum MG01_GameState { Ready, Playing, Pause, GameOver } // 상태 패턴
 
-    public GameState gameState = GameState.Ready;
+    public MG01_GameState gameState = MG01_GameState.Ready;
     public GameObject obstacleSpawner;
 
 
@@ -22,10 +22,10 @@ public class MG01_GameManager : SingleTon<MG01_GameManager>
             {
                 switch (gameState)
                 {
-                    case GameState.Ready:
+                    case MG01_GameState.Ready:
                         StartCoroutine("GameStart");
                         break;
-                    case GameState.GameOver:
+                    case MG01_GameState.GameOver:
                         Ready();
                         break;
                 }
@@ -33,7 +33,7 @@ public class MG01_GameManager : SingleTon<MG01_GameManager>
         }
         if (Input.GetMouseButtonDown(0))
         {
-            if(gameState == GameState.Ready)
+            if(gameState == MG01_GameState.Ready)
                 StartCoroutine("GameStart");
         }
     }
@@ -43,7 +43,7 @@ public class MG01_GameManager : SingleTon<MG01_GameManager>
         Debug.Log("게임 시작");
         yield return new WaitForSeconds(0.1f); // 바로 터치 방지를 위한 인풋딜레이
 
-        gameState = GameState.Playing;
+        gameState = MG01_GameState.Playing;
         obstacleSpawner.SetActive(true);
         MG01_AudioManager.Instance.PlayBGM();
         MG01_UIManager.Instance.OnGameUI(gameState);
@@ -52,7 +52,7 @@ public class MG01_GameManager : SingleTon<MG01_GameManager>
     void Ready()
     {
         Debug.Log("게임 준비");
-        gameState = GameState.Ready;
+        gameState = MG01_GameState.Ready;
         MG01_TouchManager.Instance.leftController.LeftResetPos();
         MG01_TouchManager.Instance.rightController.RightResetPos();
         MG01_ScoreManager.Instance.Score = 0;
@@ -62,7 +62,7 @@ public class MG01_GameManager : SingleTon<MG01_GameManager>
     public void GameOver()
     {
         Debug.Log("게임 종료");
-        gameState = GameState.GameOver;
+        gameState = MG01_GameState.GameOver;
         ObstacleSpawner.Instance.DespawnAll();
         obstacleSpawner.SetActive(false);
         MG01_AudioManager.Instance.StopBGM();
@@ -74,14 +74,14 @@ public class MG01_GameManager : SingleTon<MG01_GameManager>
     {
         Time.timeScale = 0f; // 게임 정지
         MG01_UIManager.Instance.OnPauseUI(gameState);
-        gameState = GameState.Pause;
+        gameState = MG01_GameState.Pause;
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1f; // 게임 재개
         MG01_UIManager.Instance.OnPauseUI(gameState);
-        gameState = GameState.Playing;
+        gameState = MG01_GameState.Playing;
     }
 
     public void GoToLobby()

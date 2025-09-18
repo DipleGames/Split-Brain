@@ -63,14 +63,14 @@ public class MG01_AudioManager : SingleTon<MG01_AudioManager>
     public void OnClickedSoundBtn()
     {
         Time.timeScale = 0f; // 게임 정지
-        MG01_GameManager.Instance.gameState = MG01_GameManager.GameState.Pause;
+        MG01_GameManager.Instance.gameState = MG01_GameManager.MG01_GameState.Pause;
         MG01_UIManager.Instance.OnSoundUI(true);
     }
 
     public void OnClickedOffBtn()
     {
         Time.timeScale = 1f; // 게임 재개
-        MG01_GameManager.Instance.gameState = MG01_GameManager.GameState.Playing;
+        MG01_GameManager.Instance.gameState = MG01_GameManager.MG01_GameState.Playing;
         MG01_UIManager.Instance.OnSoundUI(false);
         
     }

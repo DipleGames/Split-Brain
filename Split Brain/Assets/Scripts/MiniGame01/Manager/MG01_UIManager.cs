@@ -35,34 +35,34 @@ public class MG01_UIManager : SingleTon<MG01_UIManager>
         sound_Btn.SetActive(b);
     }
 
-    public void OnGameUI(MG01_GameManager.GameState gameState)
+    public void OnGameUI(MG01_GameManager.MG01_GameState gameState)
     {
         switch (gameState)
         {
-            case MG01_GameManager.GameState.Playing:
+            case MG01_GameManager.MG01_GameState.Playing:
                 gameStart_UI.SetActive(false);
                 OnBtnUI(true);
                 break;
-            case MG01_GameManager.GameState.Ready:
+            case MG01_GameManager.MG01_GameState.Ready:
                 gameOver_UI.SetActive(false);
                 gameStart_UI.SetActive(true);
                 OnBtnUI(false);
                 break;
-            case MG01_GameManager.GameState.GameOver:
+            case MG01_GameManager.MG01_GameState.GameOver:
                 gameOver_UI.SetActive(true);
                 gameOverScore_Text.text = $"Score : {MG01_ScoreManager.Instance.Score:F0}";
                 break;
         }
     }
 
-    public void OnPauseUI(MG01_GameManager.GameState gameState)
+    public void OnPauseUI(MG01_GameManager.MG01_GameState gameState)
     {
         switch (gameState)
         {
-            case MG01_GameManager.GameState.Playing:
+            case MG01_GameManager.MG01_GameState.Playing:
                 PauseGame_UI.SetActive(true);
                 break;
-            case MG01_GameManager.GameState.Pause:
+            case MG01_GameManager.MG01_GameState.Pause:
                 PauseGame_UI.SetActive(false);
                 break;
         }

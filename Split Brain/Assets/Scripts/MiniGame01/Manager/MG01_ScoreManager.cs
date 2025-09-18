@@ -21,7 +21,7 @@ public class MG01_ScoreManager : SingleTon<MG01_ScoreManager>
 
     void Update()
     {
-        if (MG01_GameManager.Instance.gameState != MG01_GameManager.GameState.Playing) return;
+        if (MG01_GameManager.Instance.gameState != MG01_GameManager.MG01_GameState.Playing) return;
 
         _tick += Time.deltaTime;
         if (_tick >= 1f)
