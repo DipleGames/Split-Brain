@@ -1130,6 +1130,7 @@ GameObject:
   - component: {fileID: 406956466}
   - component: {fileID: 406956467}
   - component: {fileID: 406956468}
+  - component: {fileID: 406956469}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -1292,6 +1293,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &406956469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406956463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60f25a5a2e83a241885218053bdc6f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectPanel: {fileID: 788790864}
+  player: {fileID: 406956465}
 --- !u!1 &407771564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 417835382}
+  - component: {fileID: 417835383}
   m_Layer: 0
   m_Name: MG02_UIManager
   m_TagString: Untagged
@@ -1359,6 +1375,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417835383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417835380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6048266405f47af48972752ee0a28d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStart_UI: {fileID: 379570001}
+  gameOver_UI: {fileID: 725736535}
+  PauseGame_UI: {fileID: 903038203}
+  Sound_UI: {fileID: 2140704156}
+  score_Text: {fileID: 2043586747}
+  gameOverScore_Text: {fileID: 1964434234}
+  pause_Btn: {fileID: 124762357}
+  sound_Btn: {fileID: 865669809}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +1765,7 @@ GameObject:
   - component: {fileID: 612138081}
   - component: {fileID: 612138082}
   - component: {fileID: 612138083}
+  - component: {fileID: 612138084}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -1891,6 +1928,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &612138084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612138078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b60f25a5a2e83a241885218053bdc6f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rectPanel: {fileID: 1821558752}
+  player: {fileID: 612138080}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,7 +2381,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 100
 --- !u!222 &788790866
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3232,6 +3283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b378e66e1b7c27342b10cf52f784144f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 0
 --- !u!1 &1821558751
 GameObject:
   m_ObjectHideFlags: 0

@@ -409,9 +409,12 @@
 "Assets/Scripts/MiniGame02/GameSystem/Controller/MG02_LController.cs"
 "Assets/Scripts/MiniGame02/GameSystem/Controller/MG02_RController.cs"
 "Assets/Scripts/MiniGame02/GameSystem/JoyStickAreaDriver.cs"
+"Assets/Scripts/MiniGame02/GameSystem/RectClamp.cs"
 "Assets/Scripts/MiniGame02/Manager/MG02_BulletManager.cs"
 "Assets/Scripts/MiniGame02/Manager/MG02_GameManager.cs"
+"Assets/Scripts/MiniGame02/Manager/MG02_ScoreManager.cs"
 "Assets/Scripts/MiniGame02/Manager/MG02_TouchManager.cs"
+"Assets/Scripts/MiniGame02/Manager/MG02_UIManager.cs"
 -langversion:9.0
 
 /deterministic

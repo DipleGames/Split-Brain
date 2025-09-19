@@ -38,36 +38,44 @@ public class MG02_GameManager : SingleTon<MG02_GameManager>
         }
     }
 
-    IEnumerator GameStart()
+     IEnumerator GameStart()
     {
         Debug.Log("게임 시작");
         yield return new WaitForSeconds(0.1f); // 바로 터치 방지를 위한 인풋딜레이
 
         gameState = MG02_GameState.Playing;
+        //MG02_AudioManager.Instance.PlayBGM();
+        MG02_UIManager.Instance.OnGameUI(gameState);
     }
 
     void Ready()
     {
         Debug.Log("게임 준비");
         gameState = MG02_GameState.Ready;
+        MG02_ScoreManager.Instance.Score = 0;
+        MG02_UIManager.Instance.OnGameUI(gameState);
     }
 
     public void GameOver()
     {
         Debug.Log("게임 종료");
         gameState = MG02_GameState.GameOver;
+        //MG02_AudioManager.Instance.StopBGM();
+        MG02_UIManager.Instance.OnGameUI(gameState);
     }
 
 
     public void PauseGame()
     {
         Time.timeScale = 0f; // 게임 정지
+        MG02_UIManager.Instance.OnPauseUI(gameState);
         gameState = MG02_GameState.Pause;
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1f; // 게임 재개
+        MG02_UIManager.Instance.OnPauseUI(gameState);
         gameState = MG02_GameState.Playing;
     }
 
