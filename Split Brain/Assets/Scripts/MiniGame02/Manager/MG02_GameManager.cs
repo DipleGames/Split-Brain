@@ -31,11 +31,11 @@ public class MG02_GameManager : SingleTon<MG02_GameManager>
                 }
             }
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(gameState == MG02_GameState.Ready)
-                StartCoroutine("GameStart");
-        }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     if(gameState == MG02_GameState.Ready)
+        //         StartCoroutine("GameStart");
+        // }
     }
 
      IEnumerator GameStart()
@@ -44,7 +44,7 @@ public class MG02_GameManager : SingleTon<MG02_GameManager>
         yield return new WaitForSeconds(0.1f); // 바로 터치 방지를 위한 인풋딜레이
 
         gameState = MG02_GameState.Playing;
-        //MG02_AudioManager.Instance.PlayBGM();
+        MG02_AudioManager.Instance.PlayBGM();
         MG02_UIManager.Instance.OnGameUI(gameState);
     }
 
@@ -60,7 +60,7 @@ public class MG02_GameManager : SingleTon<MG02_GameManager>
     {
         Debug.Log("게임 종료");
         gameState = MG02_GameState.GameOver;
-        //MG02_AudioManager.Instance.StopBGM();
+        MG02_AudioManager.Instance.StopBGM();
         MG02_UIManager.Instance.OnGameUI(gameState);
     }
 

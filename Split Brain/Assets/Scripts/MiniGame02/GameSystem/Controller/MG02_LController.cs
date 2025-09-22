@@ -1,46 +1,18 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class MG02_LController : MonoBehaviour
 {
-    [SerializeField] Camera cam; 
-    [SerializeField] Canvas canvas; // UI 캔버스
-    [SerializeField] PinePie.SimpleJoystick.JoystickController joystick; // 연결
+    Vector2 startTouchPos;
+    Vector3 startPlayerPos;
+    bool holding = false;
 
-    [Header("캐릭터 스피드")]
-    [SerializeField] float moveSpeed = 5f;
-
+    Camera cam;
     Rigidbody2D rb;
-    bool holding;
 
     void Awake()
     {
-        if (!cam) cam = Camera.main;
+        cam = Camera.main;
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    void FixedUpdate()
-    {
-        // 조이스틱에서 입력 받아오기
-        Vector2 dir = joystick.InputDirection;
-        
-        if (dir.sqrMagnitude > 0.01f)
-        {
-            dir = dir.normalized; // 방향만 유지하고 크기는 1로 고정
-            rb.velocity = dir * moveSpeed;
-        }
-        else
-        {
-            rb.velocity = Vector2.zero; // 입력 없으면 정지
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Bullet")
-        {
-            MG02_GameManager.Instance.GameOver();
-        }
     }
 
     public void OnTouch(Touch touch)
@@ -48,13 +20,33 @@ public class MG02_LController : MonoBehaviour
         if (touch.phase == TouchPhase.Began)
         {
             holding = true;
+            startTouchPos = touch.position;         // 터치 시작 위치 (스크린 좌표)
+            startPlayerPos = transform.position;    // 캐릭터 시작 위치 (월드 좌표)
         }
+        else if (holding && (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary))
+        {
+            // 현재 터치 위치와 시작 위치 차이 (스크린 좌표 단위)
+            Vector2 delta = touch.position - startTouchPos;
 
-        if (!holding) return;
+            // 화면 좌표 → 월드 좌표 보정 (픽셀 차이를 월드 거리로 변환)
+            Vector3 worldDelta = cam.ScreenToWorldPoint(new Vector3(delta.x, delta.y, 0)) 
+                               - cam.ScreenToWorldPoint(Vector3.zero);
+
+            // 캐릭터 위치 갱신
+            transform.position = startPlayerPos + worldDelta;
+        }
     }
 
     public void OnTouchEnd(Touch touch)
     {
         holding = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            MG02_GameManager.Instance.GameOver();
+        }
     }
 }
