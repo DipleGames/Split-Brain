@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using MG02_BulletSystem;
 
 public class MG02_GameManager : SingleTon<MG02_GameManager>
 {
@@ -42,7 +43,7 @@ public class MG02_GameManager : SingleTon<MG02_GameManager>
     {
         Debug.Log("게임 시작");
         yield return new WaitForSeconds(0.1f); // 바로 터치 방지를 위한 인풋딜레이
-
+    
         gameState = MG02_GameState.Playing;
         MG02_AudioManager.Instance.PlayBGM();
         MG02_UIManager.Instance.OnGameUI(gameState);
@@ -52,6 +53,8 @@ public class MG02_GameManager : SingleTon<MG02_GameManager>
     {
         Debug.Log("게임 준비");
         gameState = MG02_GameState.Ready;
+        MG02_RespawnManager.Instance.MovePlayerToUIPos(0, new Vector2(0.5f, 0.25f));
+        MG02_RespawnManager.Instance.MovePlayerToUIPos(1, new Vector2(0.5f, 0.25f));
         MG02_ScoreManager.Instance.Score = 0;
         MG02_UIManager.Instance.OnGameUI(gameState);
     }
@@ -60,6 +63,7 @@ public class MG02_GameManager : SingleTon<MG02_GameManager>
     {
         Debug.Log("게임 종료");
         gameState = MG02_GameState.GameOver;
+        MG02_BulletManager.Instance.DespawnAllBullets();
         MG02_AudioManager.Instance.StopBGM();
         MG02_UIManager.Instance.OnGameUI(gameState);
     }

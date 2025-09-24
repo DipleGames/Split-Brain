@@ -1,10 +1,19 @@
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class LobbyManager : MonoBehaviour
+public class LobbyManager : SingleTon<LobbyManager>
 {
-    public void OnClickStartBtn()
+    [SerializeField] GameObject[] MiniGameCards;
+
+    public void ChangeMiniGame(int targetPage)
     {
-        SceneManager.LoadScene("MG01_Scene");
+        foreach (var card in MiniGameCards)
+        {
+            card.SetActive(false);
+        }
+        MiniGameCards[targetPage].SetActive(true);
     }
 }
+
+

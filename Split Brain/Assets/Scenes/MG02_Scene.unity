@@ -326,8 +326,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1805173647}
+        m_TargetAssemblyTypeName: MG02_GameManager, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
@@ -565,8 +565,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1646302165}
+        m_TargetAssemblyTypeName: MG02_AudioManager, Assembly-CSharp
         m_MethodName: OnClickedOffBtn
         m_Mode: 1
         m_Arguments:
@@ -1053,7 +1053,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1683290664, guid: 0add0ccdd1848a94b9347129ea30409d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1074,9 +1074,9 @@ Transform:
   m_GameObject: {fileID: 406956463}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -585, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 30}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: -585, y: -270, z: 0}
+  m_LocalScale: {x: 30, y: 25, z: 30}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1162,7 +1162,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.6286906}
   m_EdgeRadius: 0
 --- !u!114 &406956469
 MonoBehaviour:
@@ -1266,6 +1266,56 @@ MonoBehaviour:
   gameOverScore_Text: {fileID: 1964434234}
   pause_Btn: {fileID: 124762357}
   sound_Btn: {fileID: 865669809}
+--- !u!1 &513922693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513922695}
+  - component: {fileID: 513922694}
+  m_Layer: 0
+  m_Name: MG02_RespawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &513922694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513922693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066359e933dd6854598b7d0209514bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiArea:
+  - {fileID: 788790864}
+  - {fileID: 1821558752}
+  player:
+  - {fileID: 406956465}
+  - {fileID: 612138080}
+--- !u!4 &513922695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513922693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,7 +1734,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1081252866, guid: 0add0ccdd1848a94b9347129ea30409d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1705,9 +1755,9 @@ Transform:
   m_GameObject: {fileID: 612138078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 585, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 30}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 585, y: -270, z: 0}
+  m_LocalScale: {x: 30, y: 25, z: 30}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1793,7 +1843,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.6389492}
   m_EdgeRadius: 0
 --- !u!114 &612138084
 MonoBehaviour:
@@ -2271,8 +2321,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+      - m_Target: {fileID: 1646302165}
+        m_TargetAssemblyTypeName: MG02_AudioManager, Assembly-CSharp
         m_MethodName: OnClickedSoundBtn
         m_Mode: 1
         m_Arguments:
@@ -2454,6 +2504,8 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 217794235}
+  - {fileID: 788790864}
+  - {fileID: 1821558752}
   - {fileID: 903038204}
   - {fileID: 2140704157}
   - {fileID: 407771565}
@@ -2461,8 +2513,6 @@ RectTransform:
   - {fileID: 379570002}
   - {fileID: 725736536}
   - {fileID: 124762358}
-  - {fileID: 788790864}
-  - {fileID: 1821558752}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3296,8 +3346,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1805173647}
+        m_TargetAssemblyTypeName: MG02_GameManager, Assembly-CSharp
         m_MethodName: GoToLobby
         m_Mode: 1
         m_Arguments:
@@ -3811,8 +3861,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1805173647}
+        m_TargetAssemblyTypeName: MG02_GameManager, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -3990,6 +4040,7 @@ SceneRoots:
   - {fileID: 1646302164}
   - {fileID: 417835382}
   - {fileID: 564240727}
+  - {fileID: 513922695}
   - {fileID: 145383391}
   - {fileID: 406956465}
   - {fileID: 612138080}

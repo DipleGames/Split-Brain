@@ -31,11 +31,11 @@ public class MG01_GameManager : SingleTon<MG01_GameManager>
                 }
             }
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            if(gameState == MG01_GameState.Ready)
-                StartCoroutine("GameStart");
-        }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     if(gameState == MG01_GameState.Ready)
+        //         StartCoroutine("GameStart");
+        // }
     }
 
     IEnumerator GameStart()

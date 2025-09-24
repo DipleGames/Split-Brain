@@ -12,6 +12,9 @@ namespace MG02_BulletSystem
         private Queue<GameObject> pool = new Queue<GameObject>();
         private Transform parent;
 
+        // 현재 활성화된 총알 리스트
+        private List<GameObject> activeBullets = new List<GameObject>();
+
         public void Init(Transform parent)
         {
             this.parent = parent;
@@ -30,13 +33,32 @@ namespace MG02_BulletSystem
 
             obj.transform.SetPositionAndRotation(pos, rot);
             obj.SetActive(true);
+
+            // 활성 리스트에 추가
+            activeBullets.Add(obj);
+
             return obj;
         }
 
         public void ReturnBullet(GameObject obj)
         {
+            if (activeBullets.Contains(obj))
+                activeBullets.Remove(obj);
+
             obj.SetActive(false);
             pool.Enqueue(obj);
+        }
+
+        // 모든 총알 반환
+        public void DespawnAll()
+        {
+            for (int i = activeBullets.Count - 1; i >= 0; i--)
+            {
+                GameObject obj = activeBullets[i];
+                obj.SetActive(false);
+                pool.Enqueue(obj);
+            }
+            activeBullets.Clear();
         }
     }
 
@@ -151,6 +173,11 @@ namespace MG02_BulletSystem
         public void DespawnBullet(GameObject bullet)
         {
             bulletPool.ReturnBullet(bullet);
+        }
+
+        public void DespawnAllBullets()
+        {
+            bulletPool.DespawnAll();
         }
 
         Vector3 GetRandomPositionOnRectSide(RectTransform rect)

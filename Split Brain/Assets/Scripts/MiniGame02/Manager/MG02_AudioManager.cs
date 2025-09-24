@@ -70,8 +70,8 @@ public class MG02_AudioManager : SingleTon<MG02_AudioManager>
     public void OnClickedOffBtn()
     {
         Time.timeScale = 1f; // 게임 재개
-        MG01_GameManager.Instance.gameState = MG01_GameManager.MG01_GameState.Playing;
-        MG01_UIManager.Instance.OnSoundUI(false);
+        MG02_GameManager.Instance.gameState = MG02_GameManager.MG02_GameState.Playing;
+        MG02_UIManager.Instance.OnSoundUI(false);
         
     }
 }

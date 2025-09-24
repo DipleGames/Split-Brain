@@ -7,16 +7,16 @@ public class MG02_RController : MonoBehaviour
     bool holding = false;
 
     Camera cam;
-    Rigidbody2D rb;
 
     void Awake()
     {
         cam = Camera.main;
-        rb = GetComponent<Rigidbody2D>();
     }
 
     public void OnTouch(Touch touch)
     {
+        if (MG02_GameManager.Instance.gameState != MG02_GameManager.MG02_GameState.Playing) return;
+
         if (touch.phase == TouchPhase.Began)
         {
             holding = true;
@@ -29,7 +29,7 @@ public class MG02_RController : MonoBehaviour
             Vector2 delta = touch.position - startTouchPos;
 
             // 화면 좌표 → 월드 좌표 보정 (픽셀 차이를 월드 거리로 변환)
-            Vector3 worldDelta = cam.ScreenToWorldPoint(new Vector3(delta.x, delta.y, 0)) 
+            Vector3 worldDelta = cam.ScreenToWorldPoint(new Vector3(delta.x, delta.y, 0))
                                - cam.ScreenToWorldPoint(Vector3.zero);
 
             // 캐릭터 위치 갱신
