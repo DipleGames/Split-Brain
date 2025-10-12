@@ -341,7 +341,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 117311190}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1500401274}
+        m_TargetAssemblyTypeName: MG03_NodeManager, Assembly-CSharp
+        m_MethodName: OnDownButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &117311190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -987,7 +999,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 225072679}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1500401274}
+        m_TargetAssemblyTypeName: MG03_NodeManager, Assembly-CSharp
+        m_MethodName: OnLeftButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &225072679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1475,7 +1499,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 443673500}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1500401274}
+        m_TargetAssemblyTypeName: MG03_NodeManager, Assembly-CSharp
+        m_MethodName: OnUpButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &443673500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2024,8 +2060,6 @@ GameObject:
   - component: {fileID: 716173194}
   - component: {fileID: 716173199}
   - component: {fileID: 716173198}
-  - component: {fileID: 716173197}
-  - component: {fileID: 716173196}
   - component: {fileID: 716173195}
   m_Layer: 5
   m_Name: RightNode_Panel
@@ -2050,9 +2084,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 0, y: 200}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716173195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2065,42 +2099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57243773872f5934a96f51f8e4bd0cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &716173196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 716173193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57243773872f5934a96f51f8e4bd0cbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &716173197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 716173193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  visibleCount: 6
+  spacing: 10
 --- !u!114 &716173198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2264,7 +2264,6 @@ GameObject:
   - component: {fileID: 800779836}
   - component: {fileID: 800779840}
   - component: {fileID: 800779839}
-  - component: {fileID: 800779838}
   - component: {fileID: 800779837}
   m_Layer: 5
   m_Name: LeftNode_Panel
@@ -2289,9 +2288,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 0, y: 200}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &800779837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2304,30 +2303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57243773872f5934a96f51f8e4bd0cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &800779838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800779835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  visibleCount: 6
+  spacing: 10
 --- !u!114 &800779839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2890,7 +2867,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1228913983}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1500401274}
+        m_TargetAssemblyTypeName: MG03_NodeManager, Assembly-CSharp
+        m_MethodName: OnUpButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1228913983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3120,7 +3109,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1311572162}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1500401274}
+        m_TargetAssemblyTypeName: MG03_NodeManager, Assembly-CSharp
+        m_MethodName: OnRightButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1311572162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3240,7 +3241,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1332579859}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1500401274}
+        m_TargetAssemblyTypeName: MG03_NodeManager, Assembly-CSharp
+        m_MethodName: OnLeftButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1332579859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3388,10 +3401,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodePrefab: {fileID: 8853059228353361623, guid: 46e6563dcf6a39a43a561da3e78a1a5d, type: 3}
-  nodePanels:
-  - {fileID: 800779836}
-  - {fileID: 716173194}
+  nodeSystems:
+  - {fileID: 800779837}
+  - {fileID: 716173195}
   poolSize: 20
+  moveDuration: 0.25
 --- !u!4 &1500401275
 Transform:
   m_ObjectHideFlags: 0
@@ -3563,7 +3577,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1693639422}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1500401274}
+        m_TargetAssemblyTypeName: MG03_NodeManager, Assembly-CSharp
+        m_MethodName: OnRightButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1693639422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3920,7 +3946,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1861480225}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1500401274}
+        m_TargetAssemblyTypeName: MG03_NodeManager, Assembly-CSharp
+        m_MethodName: OnDownButtonPressed
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1861480225
 MonoBehaviour:
   m_ObjectHideFlags: 0

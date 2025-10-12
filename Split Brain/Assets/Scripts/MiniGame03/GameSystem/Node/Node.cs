@@ -7,7 +7,7 @@ public class Node : MonoBehaviour
     [SerializeField] private Sprite[] arrowSprites; // 0:Up, 1:Right, 2:Left, 3:Down
     [SerializeField] private Image arrowImage;      // 실제 표시될 Image 컴포넌트
 
-    private Direction direction;
+    public Direction direction;
     private int panelIndex; // 내가 속한 패널 인덱스
 
     public void Setup(Direction dir, int panelIdx)
@@ -37,9 +37,4 @@ public class Node : MonoBehaviour
     }
 
     public Direction GetDirection() => direction;
-
-    public void ReturnToPool()
-    {
-        MG03_NodeManager.Instance.ReturnNode(this, panelIndex);
-    }
-}
+} 

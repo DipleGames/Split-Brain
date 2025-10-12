@@ -1,25 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections.Generic;
 
+[RequireComponent(typeof(RectTransform))]
 public class NodeSystem : MonoBehaviour
 {
-    void Start()
+    [Header("Slot Settings")]
+    public int visibleCount = 6;  // 한 화면에 보이는 노드 수
+    public float spacing = 10f;   // 노드 간 간격
+
+    private RectTransform rect;
+
+    private void Awake()
     {
-        UpdateCellSize();
+        rect = GetComponent<RectTransform>();
     }
 
-    void UpdateCellSize()
+    /// <summary>
+    /// 현재 패널의 슬롯 위치 리스트 반환
+    /// </summary>
+    public List<Vector3> GetSlotPositions()
     {
-        var rect = GetComponent<RectTransform>().rect;
-        int minVisibleNodes = 6;
+        List<Vector3> slots = new List<Vector3>();
+        if (rect == null) rect = GetComponent<RectTransform>();
 
-        float cellWidth = rect.width / minVisibleNodes;
-        float cellHeight = rect.height; // 높이는 패널 전체 차지
+        float panelWidth = rect.rect.width;
+        float cellWidth = (panelWidth - spacing * (visibleCount - 1)) / visibleCount;
 
-        var grid = GetComponent<GridLayoutGroup>();
-        grid.cellSize = new Vector2(cellWidth, cellHeight);
+        float startX = -panelWidth / 2f + cellWidth / 2f;
+        for (int i = 0; i < visibleCount; i++)
+        {
+            float x = startX + i * (cellWidth + spacing);
+            slots.Add(new Vector3(x, 0f, 0f));
+        }
+
+        return slots;
     }
-
 }
