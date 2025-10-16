@@ -420,6 +420,8 @@
 "Assets/Scripts/MiniGame02/Manager/MG02_UIManager.cs"
 "Assets/Scripts/MiniGame03/GameSystem/Node/Node.cs"
 "Assets/Scripts/MiniGame03/GameSystem/Node/NodeSystem.cs"
+"Assets/Scripts/MiniGame03/Manager/MG03_GameManager.cs"
+"Assets/Scripts/MiniGame03/Manager/MG03_HealthManager.cs"
 "Assets/Scripts/MiniGame03/Manager/MG03_NodeManager.cs"
 -langversion:9.0
 

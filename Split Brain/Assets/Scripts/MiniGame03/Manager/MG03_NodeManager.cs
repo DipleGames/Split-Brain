@@ -96,6 +96,7 @@ public class MG03_NodeManager : SingleTon<MG03_NodeManager>
         removed.transform.DOScale(0f, 0.15f).SetEase(Ease.InBack).OnComplete(() =>
         {
             removed.transform.localScale = Vector3.one;
+            MG03_HealthManager.Instance.RecoverHealth(1, panelIndex);
             ReturnNode(removed, panelIndex);
         });
 
