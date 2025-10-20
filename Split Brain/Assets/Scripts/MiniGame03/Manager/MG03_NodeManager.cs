@@ -89,7 +89,11 @@ public class MG03_NodeManager : SingleTon<MG03_NodeManager>
 
         // 1. 맨 앞 노드 "팡!" 제거 (간단한 스케일 애니메이션)
         Node removed = list[0];
-        if (removed.direction != dir) return; // 방향다르면 안됨.
+        if (removed.direction != dir)
+        {
+            MG03_AudioManager.Instance.PlaySFX(false);
+            return; // 방향다르면 안됨.
+        }
 
         list.RemoveAt(0);
 
@@ -97,6 +101,8 @@ public class MG03_NodeManager : SingleTon<MG03_NodeManager>
         {
             removed.transform.localScale = Vector3.one;
             MG03_HealthManager.Instance.RecoverHealth(1, panelIndex);
+            MG03_AudioManager.Instance.PlaySFX(true);
+            MG03_ScoreManager.Instance.AddScore();
             ReturnNode(removed, panelIndex);
         });
 

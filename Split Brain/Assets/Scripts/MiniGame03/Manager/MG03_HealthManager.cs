@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,11 +22,11 @@ public class MG03_HealthManager : SingleTon<MG03_HealthManager>
         base.Awake();
         leftCurrentHealth = maxHealth;
         rightCurrentHealth = maxHealth;
-        hpDecreasePerSecond = 0.01f;
+        hpDecreasePerSecond = 0.02f;
         UpdateUI();
     }
 
-    float add = 0.001f;
+    float add = 0.002f;
     float time = 0f;
     void Update()
     {
@@ -39,6 +40,8 @@ public class MG03_HealthManager : SingleTon<MG03_HealthManager>
 
     void FixedUpdate()
     {
+        if (MG03_GameManager.Instance.gameState != MG03_GameManager.MG03_GameState.Playing) return;
+        
         leftCurrentHealth -= hpDecreasePerSecond;
         rightCurrentHealth -= hpDecreasePerSecond;
         UpdateUI();
