@@ -3313,6 +3313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   success_SFX: {fileID: 8300000, guid: 74a84ba0ea132f14189137f174993441, type: 3}
   fail_SFX: {fileID: 8300000, guid: 476e8c45601c41741a45f24d2610a2d2, type: 3}
+  volume_Slider: {fileID: 526682238}
 --- !u!82 &1267543071
 AudioSource:
   m_ObjectHideFlags: 0

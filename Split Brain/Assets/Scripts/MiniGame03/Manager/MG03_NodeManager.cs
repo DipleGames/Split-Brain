@@ -92,6 +92,7 @@ public class MG03_NodeManager : SingleTon<MG03_NodeManager>
         if (removed.direction != dir)
         {
             MG03_AudioManager.Instance.PlaySFX(false);
+             MG03_HealthManager.Instance.TakeDamage(1, panelIndex);
             return; // 방향다르면 안됨.
         }
 

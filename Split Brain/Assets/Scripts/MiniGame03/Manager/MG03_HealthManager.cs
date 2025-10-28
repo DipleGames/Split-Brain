@@ -56,13 +56,27 @@ public class MG03_HealthManager : SingleTon<MG03_HealthManager>
 
     public void RecoverHealth(float amount, int panelIndex)
     {
-        switch(panelIndex)
+        switch (panelIndex)
         {
             case 0:
                 leftCurrentHealth = Mathf.Min(leftCurrentHealth + amount, maxHealth);
                 break;
             case 1:
                 rightCurrentHealth = Mathf.Min(rightCurrentHealth + amount, maxHealth);
+                break;
+        }
+        UpdateUI();
+    }
+    
+    public void TakeDamage(float amount, int panelIndex)
+    {
+        switch(panelIndex)
+        {
+            case 0:
+                leftCurrentHealth = Mathf.Min(leftCurrentHealth - amount, maxHealth);
+                break;
+            case 1:
+                rightCurrentHealth = Mathf.Min(rightCurrentHealth - amount, maxHealth);
                 break;
         }
         UpdateUI();
