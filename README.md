@@ -17,7 +17,7 @@
 - Language : C#
 - VCS : GitHub
 
-## 게임 시스템구조 아키텍처
+## 게임 로직 구조 아키텍처
 - 책임의 분리 : GameManager가 전체 게임 상태와 흐름을 제어하고 실제 플레이 로직은 별도 모듈로 분리하여 관리
 - 의존성 최소화 : 점수 획득(ScoreManager)와 UI 표시(UIManager) 간의 직접적인 참조를 끊기 위해 옵저버 패턴을 사용하여, 데이터가 변하면 자동으로 UI가 갱신되도록 설계
 <img width="2496" height="936" alt="image" src="https://github.com/user-attachments/assets/9f257c64-0c0c-4166-904d-3241e5bfee13" />
